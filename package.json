@@ -1,11 +1,11 @@
 {
-  "name": "pwa-starter-kit",
+  "name": "audio-auditions",
   "version": "0.9.0",
   "contributors": [
-    "The Polymer Authors"
+    "Amdtel Webdev"
   ],
   "license": "BSD-3-Clause",
-  "repository": "Polymer/pwa-starter-kit",
+  "repository": "AmdtelWebComponents/audio-auditions",
   "scripts": {
     "start": "polymer serve",
     "build": "polymer build --auto-base-path && gulp prpl-server",
