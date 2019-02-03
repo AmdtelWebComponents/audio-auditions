@@ -42,15 +42,17 @@ class AudioAuditions extends connect(store)(LitElement) {
     return [
       css`
         :host {
-          display: block;
-          padding: 24px;
-          max-width: 600px;
+          display: grid;
+          grid-gap: 1rem;
+          padding: 1rem;
+          min-height: 96vh;
         }
 
         header {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          grid-template-columns: 1fr 3fr 1fr;
           align-items: center;
+          justify-items: center;
         }
 
         .toolbar-list > a {
@@ -81,19 +83,6 @@ class AudioAuditions extends connect(store)(LitElement) {
           border-top: 1px solid #ccc;
           text-align: center;
         }
-
-        /* Wide layout */
-        @media (min-width: 460px) {
-          header {
-            flex-direction: row;
-          }
-
-          /* The drawer button isn't shown in the wide layout, so we don't
-          need to offset the title */
-          [main-title] {
-            padding-right: 0px;
-          }
-        }
       `
     ];
   }
@@ -102,7 +91,7 @@ class AudioAuditions extends connect(store)(LitElement) {
     // Anything that's related to rendering should be done in here.
     return html`
       <header>
-        <h1>${this.appTitle}</h1>
+        <h3>${this.appTitle}</h3>
         <nav class="toolbar-list">
           <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>|
           <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>|
