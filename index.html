@@ -101,5 +101,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <!-- Built with love using PWA Starter Kit -->
     <script type="module" src="src/components/audio-auditions.js"></script>
+    <script>
+      // @TODO: Remove this after user agent stylesheet bug is fixed
+      // This will enable css edit in dev tools...
+      // https://bugs.chromium.org/p/chromium/issues/detail?id=946975
+      delete Document.prototype.adoptedStyleSheets;
+    </script>
   </body>
 </html>

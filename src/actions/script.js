@@ -8,17 +8,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+export const SCRIPTCHANGE = 'SCRIPTCHANGE';
 
-export const increment = () => {
+export const scriptchange = () => {
   return {
-    type: INCREMENT
+    type: SCRIPTCHANGE
   };
 };
 
-export const decrement = () => {
-  return {
-    type: DECREMENT
-  };
-};

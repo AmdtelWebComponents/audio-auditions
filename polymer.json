@@ -2,7 +2,8 @@
   "entrypoint": "index.html",
   "shell": "src/components/audio-auditions.js",
   "sources": [
-    "images/**/*"
+    "images/**/*",
+    "data/**/*"
   ],
   "extraDependencies": [
     "manifest.json",

@@ -11,21 +11,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 import { LitElement, html, css } from 'lit-element';
 
 // These are the elements needed by this element.
-import { plusIcon, minusIcon } from './my-icons.js';
+import { plusIcon, minusIcon } from './audio-icons.js';
 
 // These are the shared styles needed by this element.
 import { ButtonSharedStyles } from './button-shared-styles.js';
 
-// This is a reusable element. It is not connected to the store. You can
-// imagine that it could just as well be a third-party element that you
-// got from someone else.
-class CounterElement extends LitElement {
+class ScriptControl extends LitElement {
   static get properties() {
     return {
-      /* The total number of clicks you've done. */
-      clicks: { type: Number },
-      /* The current value of the counter. */
-      value: { type: Number }
+      acts: { type: Array },
+      scenes: { type: Array },
+      characters: { type: Array}
     }
   }
 
@@ -45,34 +41,32 @@ class CounterElement extends LitElement {
 
   render() {
     return html`
-      <div>
-        <p>
-          Clicked: <span>${this.clicks}</span> times.
-          Value is <span>${this.value}</span>.
-          <button @click="${this._onIncrement}" title="Add 1">${plusIcon}</button>
-          <button @click="${this._onDecrement}" title="Minus 1">${minusIcon}</button>
-        </p>
-      </div>
+      ${this._data.length > 0 ?
+        html`
+          ${this._data.map((item) => html`
+            <section>
+              <button @click="${() => {this.value = item; this._changeScript()}}">${item.title}</button>
+            </section>`)
+          }
+        `
+        :html`<p>Loading...</p>`
+      }
     `;
   }
 
   constructor() {
     super();
-    this.clicks = 0;
-    this.value = 0;
+    this._data = [];
   }
 
-  _onIncrement() {
-    this.value++;
-    this.clicks++;
-    this.dispatchEvent(new CustomEvent('counter-incremented'));
-  }
-
-  _onDecrement() {
-    this.value--;
-    this.clicks++;
-    this.dispatchEvent(new CustomEvent('counter-decremented'));
+  _changeScript() {
+    this.dispatchEvent(new CustomEvent('script-control', {
+      detail: {
+        title: this.value.title,
+        script: this.value.script
+      }
+    }));
   }
 }
 
-window.customElements.define('counter-element', CounterElement);
+window.customElements.define('script-control', ScriptControl);

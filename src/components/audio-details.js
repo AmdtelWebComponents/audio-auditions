@@ -32,7 +32,7 @@ import './shop-cart.js';
 import { SharedStyles } from './shared-styles.js';
 import { ButtonSharedStyles } from './button-shared-styles.js';
 
-class MyView3 extends connect(store)(PageViewElement) {
+class AudioDetails extends connect(store)(PageViewElement) {
   static get properties() {
     return {
       // This is the data from the store.
@@ -96,4 +96,4 @@ class MyView3 extends connect(store)(PageViewElement) {
   }
 }
 
-window.customElements.define('my-view3', MyView3);
+window.customElements.define('audio-details', AudioDetails);

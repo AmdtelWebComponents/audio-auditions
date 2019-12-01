@@ -14,7 +14,12 @@ import { PageViewElement } from './page-view-element.js';
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
-class MyView1 extends PageViewElement {
+class AudioDashboard extends PageViewElement {
+  static get properties() {
+    return {
+      _data: { type: Object }
+    }
+  }
   static get styles() {
     return [
       SharedStyles
@@ -37,6 +42,13 @@ class MyView1 extends PageViewElement {
       </section>
     `;
   }
+
+  firstUpdated() {
+    fetch('https://audio-auditions.glitch.me/data/testscriptDB.json')
+    .then(r => r.json())
+    .then(data => {this._data = data})
+    .catch(e => console.log("fetch error:", e));
+  }
 }
 
-window.customElements.define('my-view1', MyView1);
+window.customElements.define('audio-dashboard', AudioDashboard);
