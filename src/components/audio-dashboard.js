@@ -44,7 +44,7 @@ class AudioDashboard extends PageViewElement {
   }
 
   firstUpdated() {
-    fetch('https://audio-auditions.glitch.me/data/testscriptDB.json')
+    fetch('./data/testscriptDB.json')
     .then(r => r.json())
     .then(data => {this._data = data})
     .catch(e => console.log("fetch error:", e));

@@ -2,7 +2,7 @@
     {
       "title": "Peter Pan",
       "Author": "JM Barry",
-      "script": "https://audio-auditions.glitch.me/data/testscriptDB.json"
+      "script": "./data/testscriptDB.json"
     },
     {
       "title": "Aladdin",
