@@ -58,7 +58,7 @@ class ScriptChooser extends LitElement {
   }
 
   firstUpdated() {
-    fetch('https://audio-auditions.glitch.me/data/scriptsDB.json')
+    fetch('./data/scriptsDB.json')
     .then(r => r.json())
     .then(data => {this._data = data})
     .catch(e => console.log("fetch error:", e));
