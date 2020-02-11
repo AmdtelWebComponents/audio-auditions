@@ -12,7 +12,7 @@ import { css } from 'lit-element';
 
 export const SharedStyles = css`
   :host {
-    display: block;
+    display: grid;
     box-sizing: border-box;
   }
   /* Add other styles shared across multiple components here */

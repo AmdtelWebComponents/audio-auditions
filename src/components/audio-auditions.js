@@ -43,9 +43,8 @@ class AudioAuditions extends connect(store)(LitElement) {
       css`
         :host {
           display: grid;
-          grid-gap: 1rem;
-          padding: 1rem;
-          min-height: 96vh;
+          grid-template-rows: 10vh 90vh;
+          min-height: 100vh;
         }
 
         header {
@@ -76,10 +75,11 @@ class AudioAuditions extends connect(store)(LitElement) {
         }
 
         .page[active] {
-          display: block;
+          display: grid;
         }
 
         footer {
+          display: none;
           border-top: 1px solid #ccc;
           text-align: center;
         }

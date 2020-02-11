@@ -42,11 +42,9 @@ class ScriptChooser extends LitElement {
     return html`
       ${this._data.length > 0 ?
         html`
-          ${this._data.map((item) => html`
-            <section>
-              <button @click="${() => {this._changeScript(item)}}">${item.title}</button>
-            </section>`)
-          }
+        <section>
+          ${this._data.map((item) => html`<button @click="${() => {this._changeScript(item)}}">${item.title}</button>`)}
+        </section>
         `
         :html`<p>Loading...</p>`
       }
