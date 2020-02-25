@@ -15,6 +15,7 @@ import { PageViewElement } from './page-view-element.js';
 import './script-chooser.js';
 import './script-control.js';
 import './script-view.js';
+import './script-record.js';
 
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
@@ -36,7 +37,7 @@ class AudioScript extends PageViewElement {
       css`
         :host {
           display: grid;
-          grid-template-rows: 5vh 5vh 80vh;
+          grid-template-rows: 5vh 5vh 70vh 10vh;
         }
         .script {
           overflow-y: auto;
@@ -52,7 +53,8 @@ class AudioScript extends PageViewElement {
         :html`
         <button @click="${() => this._chooser = true}">${this._title} Change Script...</button>
         <script-control .script="${this._data.act}" .act="${this._act}" .scene="${this._scene}" .idx="${this._idx}" @update-script="${this._updateScript}"></script-control>
-        <script-view .dialogue="${this._data.act[this._act].scene[this._scene].dialogue}" .idx="${this._idx}" @update-index="${this._updateIndex}"></script-view>`
+        <script-view .dialogue="${this._data.act[this._act].scene[this._scene].dialogue}" .idx="${this._idx}" @update-index="${this._updateIndex}"></script-view>
+        <script-record></script-record>`
       }
     `;
   }

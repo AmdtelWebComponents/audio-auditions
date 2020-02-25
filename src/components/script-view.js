@@ -34,18 +34,29 @@ class ScriptView extends LitElement {
           grid-column: 1/3;
           overflow-y: auto;
         }
+        .sd {
+          color: red;
+        }
+        #first {
+          font-size: 1.5em;
+        }
+        #second {
+          color: grey;
+        }
+        #third {
+          color: lightgrey;
+        }
       `
     ];
   }
 
-  render() {
+  render(first=this.dialogue[this.idx], second=this.dialogue[this.idx + 1], third=this.dialogue[this.idx + 2]) {
     return html`
         <section>
           <div class="lines">
-            <p><b>${this.dialogue[this.idx].character}:</b> ${this.dialogue[this.idx].lines}</p>
-
-            <p><b>${this.dialogue[this.idx + 1].character}:</b> ${this.dialogue[this.idx + 1].lines}</p>
-            <p><b>${this.dialogue[this.idx + 2].character}:</b> ${this.dialogue[this.idx + 2].lines}</p>
+            <p id="first" class="${first.character}"><b>${first.character}:</b> ${first.lines}</p>
+            ${this.idx + 1 < this.dialogue.length ? html`<p id="second" class="${second.character}"><b>${second.character}:</b> ${second.lines}</p>` : html``}
+            ${this.idx + 2 < this.dialogue.length ? html`<p id="third" class="${third.character}"><b>${third.character}:</b> ${third.lines}</p>` : html``}
           </div>
           <button @click="${() => {this.idx==0?this.idx=this.dialogue.length-1:this.idx--;this._updateIndex()}}" ?disabled="${this.idx == 0}">Previous</button>
           <button @click="${() => {this.idx==this.dialogue.length-1?this.idx=0:this.idx++;this._updateIndex()}}">Next</button>
